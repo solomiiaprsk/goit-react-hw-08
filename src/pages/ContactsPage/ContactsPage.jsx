@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DocumentTitle from "../../components/DocumentTitle";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
+import SearchBox from "../../components/SearchBox/Searchbox";
 import { selectLoading } from "../../redux/contacts/contactsSlice";
 import { fetchContacts } from "../../redux/contacts/contactsOps";
 
@@ -15,11 +16,12 @@ export default function ContactsPage() {
   }, [dispatch]);
 
   return (
-    <>
+    <div>
       <DocumentTitle>Your contacts</DocumentTitle>
       <ContactForm />
-      <div>{isLoading && "Request in progress..."}</div>
+      <SearchBox />
+      {isLoading && "Request in progress..."}
       <ContactList />
-    </>
+    </div>
   );
 }
